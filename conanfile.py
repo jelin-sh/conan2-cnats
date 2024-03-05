@@ -1,10 +1,11 @@
 from conan import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
 from conan.tools.scm import Git
-
+from conan.tools.microsoft import is_msvc, msvc_runtime_flag, unix_path
+import os
 
 class natsRecipe(ConanFile):
-    name = "nats"
+    name = "cnats"
     version = "v3.8.0"
 
     # Optional metadata
@@ -63,5 +64,10 @@ class natsRecipe(ConanFile):
         cmake = CMake(self)
         cmake.install()
 
-    def package_info(self):
-        self.cpp_info.libs = ["nats"]
+    def package_info(self):            
+        base_path = os.path.join("lib", "cmake", "cnats")     
+        self.cpp_info.builddirs.append(base_path)
+        self.cpp_info.set_property("cmake_build_modules", [
+            os.path.join(base_path, "cnats-config.cmake")
+        ])
+        
