@@ -11,7 +11,7 @@ class natsRecipe(ConanFile):
     # Optional metadata
     license = "MIT"
     author = "Jelin (jelin-sh@outlook.com)"
-    url = "http://192.168.31.67/Jelin/conan2-nats.c.git"
+    url = "https://github.com/jelin-sh/conan2-cnats.git"
     description = "C client for NATS, a lightweight & high performance messaging system for cloud native applications."
     topics = ("C", "messaging", "message-bus", "message-queue", "message-library","nats-client")
 
